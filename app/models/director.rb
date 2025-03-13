@@ -12,4 +12,12 @@
 #
 class Director < ApplicationRecord
   validates(:name, presence: true)
+
+#  def filmography
+#    Movie.where({:director_id => self.id})
+#  end
+
+has_many(:filmography, foreign_key: "director_id", class_name: "Movie")
+
+
 end
